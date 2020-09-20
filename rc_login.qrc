@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="Lock">
+    <file>img/lock.png</file>
+  </qresource>
+  <qresource prefix="NewLogo">
+    <file>img/logo.png</file>
+  </qresource>
+  <qresource prefix="Logo">
+    <file>img/logo.png</file>
+  </qresource>
+  <qresource prefix="User">
+    <file>img/user.png</file>
+  </qresource>
+</RCC>
