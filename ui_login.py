@@ -237,9 +237,9 @@ class Ui_Login_Menu(object):
         self.text_password.setPlaceholderText(_translate("Login_Menu", "Password"))
         self.text_forgot.setWhatsThis(_translate("Login_Menu", "<html><head/><body><p>Forgot your <span style=\" font-weight:600;\">password?</span></p></body></html>"))
         self.text_forgot.setText(_translate("Login_Menu", "<html><head/><body><p><span style=\" font-size:9pt; font-weight:400;\">Forgot your password?</span></p></body></html>"))
-        self.text_username.setPlaceholderText(_translate("Login_Menu", "Username"))
+        self.text_username.setPlaceholderText(_translate("Login_Menu", "Email"))
         self.button_close.setText(_translate("Login_Menu", "X"))
-        self.label_error.setText(_translate("Login_Menu", "Username or Password incorrect"))
+        self.label_error.setText(_translate("Login_Menu", "Email or Password incorrect"))
         self.button_close_popup.setText(_translate("Login_Menu", "X"))
 import rc_login
 

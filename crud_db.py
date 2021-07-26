@@ -1,13 +1,23 @@
 import psycopg2
+from decouple import config
+
+
+def connecting():
+    try:
+        connection = psycopg2.connect(user=config('USER'),
+                                      password=config('PASSWORD'),
+                                      host=config('HOST'),
+                                      port=config('PORT'),
+                                      database=config('DATABASE'))
+        return connection
+
+    except (Exception, psycopg2.Error) as error:
+        print("Error while connecting to PostgreSQL", error)
 
 
 def create_user():
     try:
-        connection = psycopg2.connect(user="postgres",
-                                      password="684255",
-                                      host="localhost",
-                                      port="5432",
-                                      database="dbteste")
+        connection = connecting()
 
         cursor = connection.cursor()
 
@@ -34,11 +44,7 @@ def create_user():
 
 def insert_user(email, username,password):
     try:
-        connection = psycopg2.connect(user="postgres",
-                                      password="684255",
-                                      host="localhost",
-                                      port="5432",
-                                      database="dbteste")
+        connection = connecting()
 
         cursor = connection.cursor()
         insert_table_query = """INSERT INTO Users(EMAIL,USERNAME,PASSWORD)
@@ -58,13 +64,10 @@ def insert_user(email, username,password):
         else:
             print("Error while connecting to PostgreSQL", error)
 
+
 def connection_teste():
     try:
-        connection = psycopg2.connect(user="postgres",
-                                      password="684255",
-                                      host="localhost",
-                                      port="5432",
-                                      database="dbteste")
+        connection = connecting()
 
         cursor = connection.cursor()
         # Print PostgreSQL Connection properties
@@ -86,13 +89,11 @@ def connection_teste():
         else:
             print("Error while connecting to PostgreSQL", error)
 
+
 def get_user_db(email):
     try:
-        connection = psycopg2.connect(user="postgres",
-                                      password="684255",
-                                      host="localhost",
-                                      port="5432",
-                                      database="dbteste")
+        connection = connecting()
+
         cursor = connection.cursor()
         select_user_query = """select * from Users where email = %s"""
 
@@ -124,3 +125,10 @@ def get_user_db(email):
             print("PostgreSQL connection is closed \n")
         else:
             print("Error while connecting to PostgreSQL", error)
+
+
+if __name__ == '__main__':
+    email = 'mairongallas@gmail.com'
+    username = 'mairon'
+    password = 'mairon'
+    insert_user(email, username, password)

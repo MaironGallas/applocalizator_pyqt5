@@ -1,0 +1,5 @@
+USER = user
+PASSWORD = password
+HOST = localhost
+PORT = 5432
+DATABASE = dbteste
